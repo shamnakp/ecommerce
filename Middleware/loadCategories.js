@@ -2,7 +2,8 @@ const Category = require("../Models/categoryModel");
 
 const loadCategories = async (req, res, next) => {
   try {
-    const categories = await Category.find(); // Assuming Category is your Mongoose model for categories
+    const categories = await Category.find(); 
+    //console.log(categories)// Assuming Category is your Mongoose model for categories
     res.locals.categories = categories; // Make categories available to all templates
     next();
   } catch (error) {
