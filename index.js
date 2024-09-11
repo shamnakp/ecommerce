@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./Config/connectDB");
+//const { dbConnect } = require('./config/connectDB');
 const app = express();
 const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 4000;
@@ -12,11 +13,12 @@ const session = require("express-session");
 const mongodbSession = require("connect-mongodb-session")(session);
 const loadCategories = require("./Middleware/loadCategories");
 const store = new mongodbSession({
-  uri: process.env.MONGO_URL,
+  uri: process.env.MONGODB_URL,
   collection: "SessionDB",
 });
 
 connectDB();
+//dbConnect();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
