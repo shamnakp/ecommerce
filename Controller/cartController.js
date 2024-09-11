@@ -359,7 +359,12 @@ const deleteCart = async (req, res) => {
 const cartCount = async (req, res) => {
   const userId = req.session.user;
   const user = await User.findById(userId);
-  res.json({ count: user.cart.length });
+  //res.json({ count: user.cart.length });
+  if (user) {
+    res.json({ count: user.cart.length });
+  } else {
+    res.json({ count: 0 });
+  }
 };
 
 //===================================exports------------------------

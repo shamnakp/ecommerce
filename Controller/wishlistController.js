@@ -95,7 +95,12 @@ const Wishlist = async (req, res) => {
 const wishlistCount = async (req, res) => {
   const userId = req.session.user;
   const user = await User.findById(userId);
+  if (user) {
   res.json({ count: user.wishlist.length });
+  } else {
+    res.json({ count: 0 });
+  }
+  //res.json({ count: user.wishlist.length });
 };
 
 module.exports = {

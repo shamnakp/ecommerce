@@ -29,7 +29,7 @@ const adminVerify = async (req, res) => {
       }
     } else {
       // Render the admin login page with an error message
-      res.render("admin_login", { invalid: true }); // Assuming your admin login page is named 'admin_login.ejs'
+      res.render("adminLogin", { invalid: true }); // Assuming your admin login page is named 'admin_login.ejs'
     }
   } catch (error) {
     console.log(error);
