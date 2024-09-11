@@ -121,7 +121,12 @@
                                         <div class="media">
                                             <div class="me-3">
                                                 <h6><span>
-                                                        <%= latestOrders[0].createdOn.toLocaleDateString() %>
+                                                        <!--<%= latestOrders[0].createdOn.toLocaleDateString() %> -->
+                                                        <% if (latestOrders.length > 0) { %>
+                                                            <%= latestOrders[0].createdOn.toLocaleDateString() %>
+                                                        <% } else { %>
+                                                            <p>No orders available</p>
+                                                        <% } %>
                                                     </span> <i
                                                         class="material-icons md-trending_flat text-brand ml-15 d-inline-block"></i>
                                                 </h6>
@@ -142,7 +147,8 @@
                                         <div class="media">
                                             <div class="me-3">
                                                 <h6><span>
-                                                        <%= latestOrders[1].createdOn.toLocaleDateString() %>
+                                                        <%= latestOrders[1].createdOn.toLocaleDateString() %> 
+                                                        
                                                     </span> <i
                                                         class="material-icons md-trending_flat text-brand ml-15 d-inline-block"></i>
                                                 </h6>
@@ -371,7 +377,7 @@
                 fill: true,
                 backgroundColor: 'rgba(44, 120, 220, 0.2)',
                 borderColor: 'rgba(44, 120, 220)',
-                data: <%= JSON.stringify(productsPerMonth) %>
+                data: '<%- JSON.stringify(productsPerMonth) %>'
             },
             {
                 label: 'Sales',
@@ -379,7 +385,7 @@
                 fill: true,
                 backgroundColor: 'rgba(4, 209, 130, 0.2)',
                 borderColor: 'rgb(4, 209, 130)',
-                data: <%= JSON.stringify(monthlySalesArray) %> // Use the array directly
+                data: <%- JSON.stringify(monthlySalesArray) %> // Use the array directly
             }
         ]
     },
